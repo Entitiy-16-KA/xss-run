@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Kodu Çalıştırma</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #inputBox {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #runButton {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <textarea id="inputBox" placeholder="JavaScript kodunu buraya yazın..."></textarea>
+        <button id="runButton">Çalıştır</button>
+    </div>
+
+    <script>
+        document.getElementById('runButton').onclick = function() {
+            const userInput = document.getElementById('inputBox').value;
+
+            try {
+                // Kullanıcının girdiği kodu çalıştır
+                const result = eval(userInput);
+                alert("Sonuç: " + result);
+            } catch (error) {
+                // Eğer bir hata olursa, kutucuğu temizle
+                document.getElementById('inputBox').value = '';
+                alert("Geçersiz JavaScript kodu. Kutucuk temizlendi.");
+            }
+        };
+    </script>
+</body>
+</html>
